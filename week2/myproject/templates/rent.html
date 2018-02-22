@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size: 16px;}
+img {margin-bottom: -8px;}
+.mySlides {display: none;}
+</style>
+<body class="w3-content w3-green" style="max-width:1500px;">
+
+<!-- Header with Slideshow -->
+    <div class="w3-display-left w3-padding w3-hide-small" >
+      <div class="w3-black ww3-hover-opacity-off w3-padding-large w3-round-large" style="position:relative; "> 
+		{% if user.is_authenticated %}
+			 <h1>Hi {{ user.username }}!</h1><button><a href="{% url 'profile'%}">Back to profile.</a></button>
+			   <br>
+			  <h1>Rent</h1>
+			  <!-- {% csrf_token %} -->
+				<!-- {{ form.car.label_tag }} -->
+				<!-- {{ form.car }} -->
+				<!-- {{ form.fee.label_tag }}
+				{{ form.fee }} -->
+
+				<!-- {% for field in form %}
+		      <p>
+		        {{ field.label_tag }} {% if field.required %} * {% endif %} <br>
+		        {{ field }}
+		        {% if field.help_text %}
+		          <small style="color: grey">{{ field.help_text }}</small>
+		        {% endif %}
+		        {% for error in field.errors %}
+		          <p style="color: red">{{ error }}</p>
+		        {% endfor %}
+		      </p>
+		    {% endfor %} -->
+			   {% load crispy_forms_tags %}
+			  {% crispy form %}
+			{% else %}
+				 <p>You are not logged in</p>
+		  		 <a href="{% url 'login' %}">login</a>
+			{% endif %}
+			<br>
+      </div>
+    </div>
+    
+</body>
+</html>
