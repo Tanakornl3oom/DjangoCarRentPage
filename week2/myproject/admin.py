@@ -8,6 +8,7 @@ class PersonAdmin(admin.ModelAdmin):
 
 class RentAdmin(admin.ModelAdmin):
 	list_display=[f.name for f in Rent._meta.fields]
+	list_editable = ('stop_datetime', )
 
 class CarAdmin(admin.ModelAdmin):
 	list_display=[f.name for f in Car._meta.fields]
