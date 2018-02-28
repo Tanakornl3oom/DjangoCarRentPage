@@ -1,39 +1,82 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <title>Car List</title>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size: 16px;}
-img {margin-bottom: -8px;}
-.mySlides {display: none;}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static '/css/rentcarcss.css' %}">
+<style type="text/css">
+	body {
+    background-image: url("{% static '/img/cartest.jpg' %}");
+    background-repeat: no-repeat;
+    /*background-size: 100%;*/
+}
 </style>
-<body class="w3-content w3-green" style="max-width:1500px;">
+</head>
+<body class="w3-content w3-green" style="max-width:1500px;"  >
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">username :  {{ user.username }} </a>
+    </div>
+    <ul class="nav navbar-nav" >
+      <li><a href="{% url 'profile'%}">Home</a></li>
+      <li><a href="{% url 'rent'%}">Rent Car</a></li>
+      <li class="active"><a href="#">Car Model</a></li>
+      <!-- <li><a href="{% url 'logout'%}">logout</a></li> -->
+    </ul>
+    <a class="btn btn-danger navbar-btn" href=" {% url 'logout'%}">LogOut</a>
+  </div>
+</nav>
 
 <!-- Header with Slideshow -->
-    <div class="w3-display-left w3-padding w3-hide-small" >
+    <div class="w3-display-left w3-padding " >
       <div class="w3-black ww3-hover-opacity-off w3-padding-large w3-round-large" style="position:relative; "> 
 		{% if user.is_authenticated %}
-		  <h1>Hi {{ user.username }}!</h1>
-		  <h1>Car All</h1>
-		  {% for car in object_list %}
-		    <li> Car : {{ car.model }} &nbsp&nbsp Detail: {{car.detail}}&nbsp&nbsp Price : {{car.price}}</li>
-		{% empty %}
+		  <!-- <h1>Hi {{ user.username }}!</h1> -->
+		  <h1>Car List</h1>	<br> 
+		  <table>
+			  <tr>
+			    <th>Car</th>
+			    <th>Detail</th>
+			    <th>Price</th>
+			  </tr>
+			  {% for car in object_list %}
+			  <tr>
+			    <td>{{ car.model }}</td>
+			    <td>{{car.detail}}</td>
+			    <td>{{car.price}}</td>
+			  </tr>
+			  {% empty %}
 		    <li>No car yet.</li>
-		{% endfor %}
+			  {% endfor %}
+		  </table>		
 			<br>
 			<br>
-		  <button><a href="{% url 'profile'%}">Back to profile.</a></button>
+		  <!-- <button class="button"><a href="{% url 'profile'%}">Back to profile.</a></button> -->
 		{% else %}
 		  <p>You are not logged in</p>
-		  <a href="{% url 'login' %}">login</a>
+		  <button class="button"><a href="{% url 'login' %}">login</a></button>
 		 {% endif %}
       </div>
     </div>
     
+<!--      <footer class="w3-container w3-padding-16 w3-center w3-xlarge footer" >
+  <div class="w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer> -->
+
 </body>
 </html>

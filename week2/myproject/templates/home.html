@@ -1,3 +1,4 @@
+{% load static %}
 
 <!DOCTYPE html>
 <html>
@@ -7,16 +8,18 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static '/css/rentcarcss.css' %}">
+
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size: 16px;}
 img {margin-bottom: -8px;}
 .mySlides {display: none;}
 </style>
-<body class="w3-content w3-green" style="max-width:1500px;">
+<body class="w3-content w3-green" style="max-width:1500px;"  background="{% static '/img/cartest.jpg' %}" background-repeat: no-repeat; background-size:cover;>
 
 <!-- Header with Slideshow -->
-    <div class="w3-display-left w3-padding w3-hide-small" >
+    <div class="w3-display-left w3-padding" >
       <div class="w3-black w3-hover-opacity-off w3-padding-large w3-round-large" style="position:relative; ">
     	<h1> Hello </h1>	
 	    <p>You are not logged in</p>
@@ -24,5 +27,15 @@ img {margin-bottom: -8px;}
       </div>
     </div>
     
+     <!-- <footer class="w3-container w3-padding-16 w3-center w3-xlarge footer" >
+  <div class="w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer> -->
 </body>
 </html>
