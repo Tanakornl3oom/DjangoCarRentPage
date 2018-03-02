@@ -46,12 +46,15 @@
 			    <th>Car</th>
 			    <th>Detail</th>
 			    <th>Price</th>
+			    <th>pic</th>
 			  </tr>
 			  {% for car in object_list %}
 			  <tr>
 			    <td>{{ car.model }}</td>
 			    <td>{{car.detail}}</td>
 			    <td>{{car.price}}</td>
+			  	<td><img src="{{car.image.url}}" width="300px" height="200px"></td>
+
 			  </tr>
 			  {% empty %}
 		    <li>No car yet.</li>

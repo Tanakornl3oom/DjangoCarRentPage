@@ -31,13 +31,13 @@ class RentForm(ModelForm):
 	car = forms.ModelChoiceField(queryset=Car.objects.all(),required = True)
 	start_datetime = forms.DateTimeField(help_text='Required. Format: YYYY-MM-DD HH:MM:SS',required = True)
 	# stop_datetime = forms.DateTimeField(help_text='Required. Format: YYYY-MM-DD HH:MM:SS',required = True)
-	fee = forms.DecimalField(help_text='Required. Format: 0.00',required = True)
+	# fee = forms.DecimalField(help_text='Required. Format: 0.00',required = True)
 
 
 	class Meta:
 		model =  Rent 
-		fields = ['car', 'start_datetime', 'fee' ]
-		exclude=['user', 'stop_datetime']
+		fields = ['car', 'start_datetime',]
+		exclude=['user', 'stop_datetime','fee']
 		# field1 = forms.ModelChoiceField(queryset=Car, empty_label="(Nothing)")
 
 
