@@ -20,6 +20,8 @@ from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import  include
+from myproject.serializers import router
 
 
 urlpatterns = [
@@ -31,6 +33,10 @@ urlpatterns = [
     path('profiles/',TemplateView.as_view(template_name='profile.html'), name='profile'),
     path('rent/',views.CreateRentView.as_view(), name='rent'),
     path('car/',views.ListCarView.as_view(), name='car'),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/',include(router.urls)),
+    path('test/', views.TestPage,name='test'),
+
     # path('test/',TemplateView.as_view(template_name='untitled.html'), name='profile'),
 
 ]

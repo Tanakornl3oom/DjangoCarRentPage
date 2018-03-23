@@ -31,8 +31,7 @@ class Car(models.Model):
 	model =models.CharField(max_length=100)
 	detail=models.CharField(max_length=100)
 	price=models.DecimalField(max_digits=15, decimal_places=2)
-	image=models.ImageField(upload_to='cars')
-	
+	image=models.ImageField(upload_to='cars')	
 	def __str__(self):
 	  return "%s" % (self.model)
 
@@ -42,3 +41,5 @@ class Rent(models.Model):
 	start_datetime = models.DateTimeField(null=True)
 	stop_datetime= models.DateTimeField(null=True)
 	fee= models.DecimalField(max_digits=15, decimal_places=2)
+	def __str__(self):
+	  return "%s %s " % (self.user,self.car)

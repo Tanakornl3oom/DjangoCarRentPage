@@ -38,6 +38,11 @@ class ListCarView(ListView):
 		model = Car
 		template_name='Car.html'
 
+def TestPage(request):
+	if(request.method == 'GET'):
+		print ('Test GET method')
+	return render(request,"test.html")
+
 
 
 
